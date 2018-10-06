@@ -38,9 +38,6 @@ float pongPosY = 0.0f;
 float pongAngle = 45.0f;
 
 float deltaPaddleY = 0.0f;  // Change between current and previous keyboard press position
-float deltaPongX = 0.0f;    // Change in velocity in X direction
-float deltaPongY = 0.0f;    // Change in velocity in Y direction
-float deltaMouseY = 0.0f;
 
 float directionX = 0.0f;
 float directionY = 0.0f;
@@ -92,7 +89,6 @@ void ProcessEvents () {
     float ticks = (float)SDL_GetTicks() / 1000.0f;
     elapsed = ticks - lastFrameTicks;
     lastFrameTicks = ticks;
-    deltaMouseY = 0.0f;
 
     while (SDL_PollEvent(&event)) {
         if (event.type == SDL_QUIT || event.type == SDL_WINDOWEVENT_CLOSE) {
@@ -101,7 +97,6 @@ void ProcessEvents () {
             if (event.type == SDL_MOUSEMOTION) {
                 // Calculate mouse Y position according to world coordinate system
                 float unitY = (((float)(360 - event.motion.y) / 360.0f) * 2.0f) - 1.0f;
-                deltaMouseY = unitY - paddleTwoPosY;
                 paddleTwoPosY = unitY;
             }
             
@@ -127,7 +122,7 @@ void ProcessEvents () {
 }
 
 void UpdatePaddles () {
-    // Calculating next paddle positions
+    // Calculating next paddle one positions
     float nextPaddlePosY = paddleOnePosY + deltaPaddleY;
     // If paddle will collide with top or bottom wall, do not move further
     if (nextPaddlePosY >= 1.0f || nextPaddlePosY <= -1.0f) {
@@ -139,17 +134,15 @@ void UpdatePaddles () {
 
 void UpdatePongBall () {
     // Calculating and translating new pong positions
-    deltaPongX = directionX * elapsed * 5.0f;
-    deltaPongY = directionY * elapsed * 5.0f;
-    pongPosX += deltaPongX;
-    pongPosY += deltaPongY;
+    pongPosX += directionX * elapsed * 5.0f;
+    pongPosY += directionY * elapsed * 5.0f;
     
     // Checking if pong collided with paddles
     bool collidePaddleOne = collisionCheck("player1", paddleOnePosY, pongPosX, pongPosY);
     bool collidePaddleTwo = collisionCheck("player2", paddleTwoPosY, pongPosX, pongPosY);
     
     // Checking for collisions (walls or paddles)
-    if ((pongPosY + 0.05 >= 1.0f && pongPosY >= 1.0f) || (pongPosY - 0.05 <= -1.0f && pongPosY <= -1.0f)) {
+    if ((pongPosY + 0.05 >= 1.0f && pongPosY >= 0.95f) || (pongPosY - 0.05 <= -1.0f && pongPosY <= -0.95f)) {
         // Pong ball hit top wall or bottom wall
         pongAngle = pongAngle * -1; // 45 degrees becomes -45 degrees
         directionX = cosf(pongAngle * 3.14159 / 180);
@@ -172,8 +165,6 @@ void UpdatePongBall () {
         pongMatrix = glm::mat4(1.0f);
         pongPosX = 0.0f;
         pongPosY = 0.0f;
-        deltaPongX = 0.0f;
-        deltaPongY = 0.0f;
         directionX = 0.0f;
         directionY = 0.0f;
         pongAngle = 45.0f;
@@ -195,7 +186,8 @@ void Update () {
 
 void Render () {
     // Drawing Paddle One
-    paddleOneMatrix = glm::translate(paddleOneMatrix, glm::vec3(0.0f, deltaPaddleY, 0.0f));
+    paddleOneMatrix = glm::mat4(1.0f);
+    paddleOneMatrix = glm::translate(paddleOneMatrix, glm::vec3(0.0f, paddleOnePosY, 0.0f));
     program.SetModelMatrix(paddleOneMatrix);
     
     float paddle1[] = {-1.7f, -0.2f, -1.6f, 0.2f, -1.7f, 0.2f, -1.7f, -0.2f, -1.6f, -0.2f, -1.6f, 0.2f};
@@ -205,7 +197,8 @@ void Render () {
     glDrawArrays(GL_TRIANGLES, 0, 6);
     
     // Drawing Paddle Two
-    paddleTwoMatrix = glm::translate(paddleTwoMatrix, glm::vec3(0.0f, deltaMouseY, 0.0f));
+    paddleTwoMatrix = glm::mat4(1.0f);
+    paddleTwoMatrix = glm::translate(paddleTwoMatrix, glm::vec3(0.0f, paddleTwoPosY, 0.0f));
     program.SetModelMatrix(paddleTwoMatrix);
     
     float paddle2[] = {1.6f, -0.2f, 1.7f, 0.2f, 1.6f, 0.2f, 1.6f, -0.2f, 1.7f, -0.2f, 1.7f, 0.2f};
@@ -215,7 +208,8 @@ void Render () {
     glDrawArrays(GL_TRIANGLES, 0, 6);
     
     // Drawing Pong Ball
-    pongMatrix = glm::translate(pongMatrix, glm::vec3(deltaPongX, deltaPongY, 0.0f));
+    pongMatrix = glm::mat4(1.0f);
+    pongMatrix = glm::translate(pongMatrix, glm::vec3(pongPosX, pongPosY, 0.0f));
     program.SetModelMatrix(pongMatrix);
     
     float pong[] = {-0.05f, -0.05f, 0.05f, 0.05f, -0.05f, 0.05f, -0.05f, -0.05f, 0.05f, -0.05f, 0.05f, 0.05f};
