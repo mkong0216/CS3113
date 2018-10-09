@@ -25,6 +25,9 @@ bool gameStarted = false;
 float lastFrameTicks = 0.0f;
 float elapsed;
 
+int playerOneScore = 0;
+int playerTwoScore = 0;
+
 // Global pong and paddle matrices
 glm::mat4 pongMatrix;
 glm::mat4 paddleOneMatrix;
@@ -132,6 +135,23 @@ void UpdatePaddles () {
     }
 }
 
+void updatePlayerScores () {
+    std::string winner;
+    
+    if (pongPosX < 0) {
+        playerTwoScore += 1;
+        winner = "Player Two";
+    } else {
+        playerOneScore += 1;
+        winner = "Player One";
+    }
+    
+    std::cout << winner << " scored one point!\n";
+    std::cout << "Player One: " << playerOneScore << "\n";
+    std::cout << "Player Two: " << playerTwoScore << "\n";
+    std::cout << "------\n";
+
+}
 void UpdatePongBall () {
     // Calculating and translating new pong positions
     pongPosX += directionX * elapsed * 5.0f;
@@ -162,6 +182,9 @@ void UpdatePongBall () {
     } else if (pongPosX + 0.05 >= 1.777f || pongPosX - 0.05 <= -1.777f) {
         // Pong ball reached left or right walls meaning a player was able to score
         // Reset pong back to center and change gameStarted to false
+        
+        updatePlayerScores();
+
         pongMatrix = glm::mat4(1.0f);
         pongPosX = 0.0f;
         pongPosY = 0.0f;
