@@ -17,8 +17,6 @@ glm::mat4 gameMatrix = glm::mat4(1.0f);
 int bulletIndex = 0;
 int winScore = 10 * (10 + 20 + 30);
 
-float deltaEnemyPosX = 0.0f;
-float deltaEnemyPosY = 0.0f;
 float playerDirectionX = 0.0f;
 float enemyDirectionX = 1.0f;
 
@@ -66,6 +64,10 @@ void GameLevel::ProcessInput(SDL_Event &event, float elapsed) {
             
             if (event.type == SDL_MOUSEBUTTONDOWN) {
                 // If "Play Again?" is selected, reset game state.
+                playerDirectionX = 0.0f;
+                enemyDirectionX = 1.0f;
+                bulletIndex = 0;
+
                 state.resetGame();
                 levelMode = STATE_GAME_CONTINUE;
             }
