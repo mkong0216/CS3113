@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6D5A86AE19AE5C710066C1FD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A86AD19AE5C710066C1FD /* Cocoa.framework */; };
-		6D5A86B819AE5C710066C1FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D5A86B619AE5C710066C1FD /* InfoPlist.strings */; };
 		6D5A86BA19AE5C710066C1FD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D5A86B919AE5C710066C1FD /* main.cpp */; };
-		6D5A86BE19AE5C710066C1FD /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6D5A86BC19AE5C710066C1FD /* Credits.rtf */; };
 		6D5A86C619AE5C710066C1FD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D5A86C519AE5C710066C1FD /* Images.xcassets */; };
 		6D5A86E319AE5CD10066C1FD /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A86E219AE5CD10066C1FD /* SDL2.framework */; };
 		6D5AC2D019AE6280004CB1BF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5AC2CF19AE6280004CB1BF /* OpenGL.framework */; };
@@ -28,6 +26,9 @@
 		C1815DC8217C3D42008B4A84 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1815DC6217C3D42008B4A84 /* MainMenu.cpp */; };
 		C1815DCD217C3FBB008B4A84 /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1815DCB217C3FBB008B4A84 /* utilities.cpp */; };
 		C1815DD0217CC6FD008B4A84 /* GameLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1815DCE217CC6FD008B4A84 /* GameLevel.cpp */; };
+		C1AFB9712192928500179009 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1AFB9702192928500179009 /* Images.xcassets */; };
+		C1E92502219248AA00A97EEA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C1E92500219248AA00A97EEA /* Credits.rtf */; };
+		C1E92503219248AA00A97EEA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1E92501219248AA00A97EEA /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,9 +38,7 @@
 		6D5A86B119AE5C710066C1FD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6D5A86B219AE5C710066C1FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D5A86B519AE5C710066C1FD /* NYUCodebase-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NYUCodebase-Info.plist"; sourceTree = "<group>"; };
-		6D5A86B719AE5C710066C1FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D5A86B919AE5C710066C1FD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		6D5A86BD19AE5C710066C1FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		6D5A86C519AE5C710066C1FD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6D5A86E219AE5CD10066C1FD /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		6D5AC2CF19AE6280004CB1BF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -64,6 +63,9 @@
 		C1815DCC217C3FBB008B4A84 /* utilities.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = utilities.hpp; sourceTree = "<group>"; };
 		C1815DCE217CC6FD008B4A84 /* GameLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevel.cpp; sourceTree = "<group>"; };
 		C1815DCF217CC6FD008B4A84 /* GameLevel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameLevel.hpp; sourceTree = "<group>"; };
+		C1AFB9702192928500179009 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C1E92500219248AA00A97EEA /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		C1E92501219248AA00A97EEA /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +134,11 @@
 		6D5A86B419AE5C710066C1FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C1AFB9702192928500179009 /* Images.xcassets */,
 				6D5A86C519AE5C710066C1FD /* Images.xcassets */,
 				6D5A86B519AE5C710066C1FD /* NYUCodebase-Info.plist */,
-				6D5A86B619AE5C710066C1FD /* InfoPlist.strings */,
-				6D5A86BC19AE5C710066C1FD /* Credits.rtf */,
+				C1E92500219248AA00A97EEA /* Credits.rtf */,
+				C1E92501219248AA00A97EEA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -222,13 +225,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1815DBA217BA8EA008B4A84 /* text.png in Resources */,
-				6D5A86B819AE5C710066C1FD /* InfoPlist.strings in Resources */,
+				C1AFB9712192928500179009 /* Images.xcassets in Resources */,
 				6DEF23C11B96CC2600BCE792 /* fragment.glsl in Resources */,
 				C1815DBC217BD4C4008B4A84 /* spaceinvaders.png in Resources */,
 				6DE9D2F11BA6AB8C002D599C /* fragment_textured.glsl in Resources */,
+				C1E92502219248AA00A97EEA /* Credits.rtf in Resources */,
 				6D5A86C619AE5C710066C1FD /* Images.xcassets in Resources */,
-				6D5A86BE19AE5C710066C1FD /* Credits.rtf in Resources */,
 				6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */,
+				C1E92503219248AA00A97EEA /* InfoPlist.strings in Resources */,
 				6DC7076A1BA7273500225B7D /* vertex_textured.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,25 +256,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		6D5A86B619AE5C710066C1FD /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6D5A86B719AE5C710066C1FD /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6D5A86BC19AE5C710066C1FD /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6D5A86BD19AE5C710066C1FD /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6D5A86D919AE5C710066C1FD /* Debug */ = {
